@@ -1,0 +1,41 @@
+[package]
+name = "cosmic-ext-hot-edge"
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-only"
+description = "GNOME's Hot Edge for COSMIC: push the pointer into the bottom of the screen to open the workspaces overview"
+repository = "https://github.com/DrakRosmann/cosmic-ext-hot-edge"
+
+[lib]
+path = "src/lib.rs"
+
+# The settings app.
+[[bin]]
+name = "cosmic-ext-hot-edge"
+path = "src/main.rs"
+
+# Puts the hot edges on the screens; started with the session.
+[[bin]]
+name = "cosmic-ext-hot-edge-daemon"
+path = "src/daemon/main.rs"
+
+[dependencies]
+libcosmic = { git = "https://github.com/pop-os/libcosmic", default-features = false, features = [
+    "dbus-config",
+    "tokio",
+    "wayland",
+    "winit",
+] }
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+
+[patch."https://github.com/smithay/client-toolkit.git"]
+sctk = { package = "smithay-client-toolkit", version = "0.20.0" }
+
+[patch."https://github.com/pop-os/cosmic-protocols"]
+cosmic-protocols = { git = "https://github.com/pop-os/cosmic-protocols//", rev = "32283d7" }
+cosmic-client-toolkit = { git = "https://github.com/pop-os/cosmic-protocols//", rev = "32283d7" }
+
+[profile.release]
+lto = "thin"
+strip = true

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.DrakRosmann.CosmicHotEdge</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>Hot Edge</name>
+  <name xml:lang="pt_BR">Borda ativa</name>
+  <summary>Push the pointer into the edge of the screen to open the overview</summary>
+  <summary xml:lang="pt_BR">Empurre o cursor contra a borda da tela para abrir a visão geral</summary>
+  <description>
+    <p>
+      GNOME's Hot Edge extension for COSMIC: a hot edge along the bottom of the screen that
+      opens the workspaces overview when the pointer is pushed into it, like an auto-hiding dock
+      without changing the desktop. Its settings are the extension's: activation pressure,
+      edge size, not activating while a mouse button is held or a fullscreen window is focused,
+      only on the primary monitor, and the ripple animation. On COSMIC the edge and what it
+      opens can be chosen too.
+    </p>
+  </description>
+  <launchable type="desktop-id">io.github.DrakRosmann.CosmicHotEdge.desktop</launchable>
+  <url type="homepage">https://github.com/DrakRosmann/cosmic-ext-hot-edge</url>
+  <url type="bugtracker">https://github.com/DrakRosmann/cosmic-ext-hot-edge/issues</url>
+  <developer id="io.github.drakrosmann">
+    <name>DrakRosmann</name>
+  </developer>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/DrakRosmann/cosmic-ext-hot-edge/main/assets/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <provides>
+    <binary>cosmic-ext-hot-edge</binary>
+    <binary>cosmic-ext-hot-edge-daemon</binary>
+  </provides>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2026-10-09"/>
+  </releases>
+</component>

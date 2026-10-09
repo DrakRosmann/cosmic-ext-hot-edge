@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Hot Edge
+Name[pt_BR]=Borda ativa
+Comment=Push the pointer into the edge of the screen to open the overview
+Comment[pt_BR]=Empurre o cursor contra a borda da tela para abrir a visão geral
+Type=Application
+Exec=cosmic-ext-hot-edge
+Icon=io.github.DrakRosmann.CosmicHotEdge
+Terminal=false
+Categories=COSMIC;Settings;DesktopSettings;
+Keywords=COSMIC;Hot;Edge;Corner;Overview;Workspaces;Borda;Canto;Visão geral;
+OnlyShowIn=COSMIC;
+StartupNotify=true

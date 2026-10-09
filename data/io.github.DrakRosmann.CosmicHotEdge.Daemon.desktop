@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Hot Edge
+Name[pt_BR]=Borda ativa
+Comment=Puts the hot edges on the screens
+Comment[pt_BR]=Põe as bordas ativas nas telas
+Type=Application
+Exec=cosmic-ext-hot-edge-daemon
+Icon=io.github.DrakRosmann.CosmicHotEdge
+Terminal=false
+NoDisplay=true
+OnlyShowIn=COSMIC;
+X-GNOME-Autostart-Phase=Applications

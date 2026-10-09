@@ -1,0 +1,59 @@
+# .deb, .rpm and Arch packages from what `DESTDIR=pkgroot ./install.sh /usr
+# --no-build` puts in pkgroot/. VERSION and ARCH (amd64, arm64) come from the
+# environment: see .github/workflows/release.yml.
+name: cosmic-ext-hot-edge
+arch: ${ARCH}
+platform: linux
+version: ${VERSION}
+release: 1
+section: x11
+priority: optional
+maintainer: DrakRosmann <DrakRosmann@users.noreply.github.com>
+description: |
+  GNOME's Hot Edge for COSMIC.
+  Push the pointer into the bottom edge of the screen to open the workspaces
+  overview, like an auto-hiding dock without changing the desktop; with an
+  app to set it up as the extension's preferences do.
+vendor: DrakRosmann
+homepage: https://github.com/DrakRosmann/cosmic-ext-hot-edge
+license: GPL-3.0-only
+
+contents:
+  - src: pkgroot/
+    dst: /
+    type: tree
+  - src: LICENSE
+    dst: /usr/share/licenses/cosmic-ext-hot-edge/LICENSE
+
+overrides:
+  deb:
+    depends:
+      - libc6 (>= 2.36)
+      - libxkbcommon0
+    recommends:
+      - cosmic-workspaces
+      - cosmic-randr
+  rpm:
+    depends:
+      - glibc
+      - libxkbcommon
+    recommends:
+      - cosmic-workspaces
+      - cosmic-randr
+  archlinux:
+    depends:
+      - glibc
+      - gcc-libs
+      - libxkbcommon
+    optdepends:
+      - "cosmic-workspaces: the overview the edge opens"
+      - "cosmic-randr: to find the primary monitor"
+
+rpm:
+  summary: GNOME's Hot Edge for COSMIC
+  group: User Interface/Desktops
+deb:
+  fields:
+    Bugs: https://github.com/DrakRosmann/cosmic-ext-hot-edge/issues
+archlinux:
+  packager: DrakRosmann <DrakRosmann@users.noreply.github.com>
