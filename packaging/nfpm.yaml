@@ -19,9 +19,18 @@ homepage: https://github.com/DrakRosmann/cosmic-ext-hot-edge
 license: GPL-3.0-only
 
 contents:
-  - src: pkgroot/
-    dst: /
-    type: tree
+  - src: pkgroot/usr/bin/cosmic-ext-hot-edge
+    dst: /usr/bin/cosmic-ext-hot-edge
+  - src: pkgroot/usr/bin/cosmic-ext-hot-edge-daemon
+    dst: /usr/bin/cosmic-ext-hot-edge-daemon
+  - src: pkgroot/usr/share/applications/io.github.DrakRosmann.CosmicHotEdge.desktop
+    dst: /usr/share/applications/io.github.DrakRosmann.CosmicHotEdge.desktop
+  - src: pkgroot/etc/xdg/autostart/io.github.DrakRosmann.CosmicHotEdge.Daemon.desktop
+    dst: /etc/xdg/autostart/io.github.DrakRosmann.CosmicHotEdge.Daemon.desktop
+  - src: pkgroot/usr/share/icons/hicolor/scalable/apps/io.github.DrakRosmann.CosmicHotEdge.svg
+    dst: /usr/share/icons/hicolor/scalable/apps/io.github.DrakRosmann.CosmicHotEdge.svg
+  - src: pkgroot/usr/share/metainfo/io.github.DrakRosmann.CosmicHotEdge.metainfo.xml
+    dst: /usr/share/metainfo/io.github.DrakRosmann.CosmicHotEdge.metainfo.xml
   - src: LICENSE
     dst: /usr/share/licenses/cosmic-ext-hot-edge/LICENSE
 
@@ -45,9 +54,9 @@ overrides:
       - glibc
       - gcc-libs
       - libxkbcommon
-    optdepends:
-      - "cosmic-workspaces: the overview the edge opens"
-      - "cosmic-randr: to find the primary monitor"
+    suggests:
+      - cosmic-workspaces
+      - cosmic-randr
 
 rpm:
   summary: GNOME's Hot Edge for COSMIC
