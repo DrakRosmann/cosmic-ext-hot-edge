@@ -9,4 +9,3 @@ Icon=io.github.DrakRosmann.CosmicHotEdge
 Terminal=false
 NoDisplay=true
 OnlyShowIn=COSMIC;
-X-GNOME-Autostart-Phase=Applications

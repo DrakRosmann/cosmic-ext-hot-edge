@@ -784,7 +784,13 @@ impl PointerHandler for Daemon {
                 PointerEventKind::Enter { .. } => self.enter(&event.surface, event.position, false),
                 // Only the edges there are now: one made again was left
                 // when it went away, not by the pointer.
-                PointerEventKind::Leave { .. } if on_hover => self.leave(),
+                PointerEventKind::Leave { .. } if on_hover => {
+                    // Covered by what was just opened, not left by the
+                    // pointer: still triggered until the edge is made again.
+                    let latched = self.latched && self.restack.is_some();
+                    self.leave();
+                    self.latched = latched;
+                }
                 PointerEventKind::Motion { .. } if on_hover => {
                     let along = self.along(&event.surface, event.position);
                     if let Some(hover) = &mut self.hover {
